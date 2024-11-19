@@ -14,5 +14,5 @@ class AnomalyHandler:
         cleaned_data = self.data[self.data['Fuel Type'] != 'Pepsi']
         return cleaned_data, anomalies
 
-    def save_anomalies(self, anomalies, file_path):
-        anomalies.to_csv(file_path, index=False)
+    def save_anomalies(self, dataAnomalies, file_path):
+        dataAnomalies.to_csv(file_path, index=False)
