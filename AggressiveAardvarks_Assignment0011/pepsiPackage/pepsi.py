@@ -10,8 +10,8 @@ class AnomalyHandler:
         self.data = data
 
     def separate_anomalies(self):
-        anomalies = self.data[self.data['Product'] == 'Pepsi']
-        cleaned_data = self.data[self.data['Product'] != 'Pepsi']
+        anomalies = self.data[self.data['Fuel Type'] == 'Pepsi']
+        cleaned_data = self.data[self.data['Fuel Type'] != 'Pepsi']
         return cleaned_data, anomalies
 
     def save_anomalies(self, anomalies, file_path):
