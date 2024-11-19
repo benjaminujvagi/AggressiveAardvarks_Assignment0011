@@ -19,3 +19,6 @@ class DataCleaner:
 
     def get_data(self):
         return self.data
+
+    def save_cleaned_data(self, file_path):
+        self.data.to_csv(file_path, index=False)
