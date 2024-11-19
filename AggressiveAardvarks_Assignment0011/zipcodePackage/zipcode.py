@@ -11,12 +11,12 @@ class ZipFiller:
 
     def fill_missing_zip_codes(self, data):
         for index, row in data.iterrows():
-            if pd.isnull(row['Zip Code']):
+            if pd.isnull(row['Full Address']):
                 city = row['City']
                 response = requests.get(
                     f'https://app.zipcodebase.com/api/v1/search?apikey={self.api_key}&city={city}&country=US'
                 )
                 if response.status_code == 200:
                     zip_code = response.json()['results'][city][0]['postal_code']
-                    data.at[index, 'Zip Code'] = zip_code
+                    data.at[index, 'Full Address'] = zip_code
         return data
